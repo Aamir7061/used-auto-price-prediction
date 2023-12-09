@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
+</head>
+
+<body style="background-image: url('E:/Project/car pice prediction/c.jpg'); background-size: cover; background-position: center; font-family: 'Monotype Corsiva', cursive; color: rgb(26, 156, 226); margin: 0; padding: 0; text-align: center;">
+
+    <div id="container" style="max-width: 800px; margin: 50px auto; background-image: url('E:/Project/car pice prediction/c.jpg');; border-radius: 15px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
+
+        <form action="{{ url_for('predict')}}" method="post">
+            <h1 style="font-size: 75px;color: #cf5e13;"><B> Get Your Old Car Selling Price Here </B></h1>
+
+            <label for="first"><h3>Purchased Year</h3></label>
+            <input id="first" name="Year" type="number">
+
+            <label for="second"><h3>Current Showroom Price (In lakhs)</h3></label>
+            <input id="second" name="Present_Price" required="required">
+
+            <label for="third"><h3>Kilometers Driven</h3></label>
+            <input id="third" name="Kms_Driven" required="required">
+
+            <label for="fourth"><h3>Number of Owners</h3></label>
+            <input id="fourth" name="Owner" required="required">
+
+            <label for="fuel"><h3>Fuel Type</h3></label>
+            <select name="Fuel_Type_Petrol" id="fuel" required="required">
+                <option>select</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+            </select>
+
+            <label for="resea"><h3>Seller Type</h3></label>
+            <select name="Seller_Type_Individual" id="resea" required="required">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select>
+
+            <label for="research"><h3>Transmission Type</h3></label>
+            <select name="Transmission_Mannual" id="research" required="required">
+                <option value="Manual">Manual Car</option>
+                <option value="Automatic">Automatic Car</option>
+            </select>
+
+            <button type="submit">Calculate Your Selling Price</button>
+        </form>
+
+        <div id="prediction">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+
+    </div>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Transparent white */
+            color: black;
+        }
+
+        table, th, td {
+            border: 1px solid white;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+
+</body>
+
+</html>
